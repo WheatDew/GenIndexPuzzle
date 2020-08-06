@@ -19,15 +19,15 @@ public class Puzzle : MonoBehaviour
 
     public void Insert(int positionNumber,Puzzle part)
     {
-        UpdatePositionOnAddition(positionNumber, part.width);
-        puzzleChild[positionNumber].Add(part);
-        part.transform.position = puzzleParts[positionNumber * 2 - 1].position + new Vector3(0.6f, 0, 0);
-        
+        int convertNumber = positionNumber * 2 - 1;
+        UpdatePositionOnAddition(convertNumber, part.width);
+        puzzleChild[convertNumber].Add(part);
+        part.transform.position = puzzleParts[convertNumber].position + new Vector3(0.6f, 0, 0);
     }
 
-    public void UpdatePositionOnAddition(int positionNumber,float width)
+    public void UpdatePositionOnAddition(int convertNumber, float width)
     {
-        int convertNumber = positionNumber * 2-1;
+        
         for(int i = 0; i < convertNumber; i++)
             puzzleParts[i].transform.position += new Vector3(0, 0, width);
         puzzleParts[convertNumber].localScale += new Vector3(0,0,width*0.1f);
