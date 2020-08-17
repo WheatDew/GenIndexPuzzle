@@ -17,6 +17,11 @@ public class Puzzle : MonoBehaviour
     public List<Transform> puzzleParts=new List<Transform>();
     public List<List<Puzzle>> puzzleChild = new List<List<Puzzle>>();
 
+    public void TestInsert(Puzzle puzzle)
+    {
+        Insert(1, puzzle);
+    }
+
     public void Insert(int positionNumber,Puzzle part)
     {
         int convertNumber = positionNumber * 2 - 1;
